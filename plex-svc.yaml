@@ -1,0 +1,15 @@
+apiVersion: v1beta3
+kind: Service
+metadata:
+  name: plex
+  namespace: default
+  labels:
+    app: plex
+spec:
+  selector:
+    app: plex
+  ports:
+  - name: web
+    targetPort: 32400
+    port: 80
+    protocol: TCP
