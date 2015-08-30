@@ -14,6 +14,7 @@ spec:
       labels:
         app: plex
     spec:
+      imagePullPolicy: Always
       containers:
       - name: plex
         image: timhaak/plex
@@ -28,8 +29,10 @@ spec:
           mountPath: "/data"
       volumes:
       - name: config
-        hostPath: 
+        nfs:
+          server: freenas.hell.corp 
           path: "/mnt/vol0/k8s/plex/config"
       - name: data
-        hostPath: 
+        nfs:
+          server: freenas.hell.corp 
           path: "/mnt/vol0"
